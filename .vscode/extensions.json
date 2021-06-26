@@ -1,0 +1,33 @@
+{
+  "recommendations": [
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    "miquelddg.dart-barrel-file-generator",
+    "nash.awesome-flutter-snippets",
+    "mrgnhnt96.dev-bros-dart-snippets",
+    "luanpotter.dart-import",
+    "bendixma.dart-data-class-generator",
+    "bconnect-berlin.pubmanager",
+    "jeroen-meijer.pubspec-assist",
+    "felixangelov.bloc",
+    "gornivv.vscode-flutter-files",
+    "marcelovelasquez.flutter-tree",
+    "localizely.flutter-intl",
+    "hirantha.json-to-dart",
+    "peterhdd.dartgettersetter",
+    "alexisvt.flutter-snippets",
+    "pflannery.vscode-versionlens",
+    "coenraads.bracket-pair-colorizer-2",
+    "pkief.material-icon-theme",
+    "kisstkondoros.vscode-gutter-preview",
+    "naumovs.color-highlight",
+    "aaron-bond.better-comments",
+    "usernamehw.errorlens",
+    "gruntfuggly.todo-tree",
+    "eamodio.gitlens",
+    "redvanworkshop.explorer-exclude-vscode-extension",
+    "oderwat.indent-rainbow",
+    "tuguldurio.monokai-aora",
+    "bierner.emojisense"
+  ]
+}

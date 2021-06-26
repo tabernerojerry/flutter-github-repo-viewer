@@ -1,0 +1,24 @@
+{
+  "window.zoomLevel": 0,
+  "dart.previewFlutterUiGuides": true,
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    "editor.trimAutoWhitespace": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "**/*.gr.dart": true
+  },
+  "explorerExclude.backup": null
+}
