@@ -47,4 +47,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
     // Don't forget to close
     grant.close();
   }
+
+  Future<void> signOut() async {
+    final failureOrSuccess = await _githubAuthenticator.signOut();
+
+    failureOrSuccess.fold(
+      (failure) => AuthState.failure(failure),
+      (_) => const AuthState.unauthenticated(),
+    );
+  }
 }
