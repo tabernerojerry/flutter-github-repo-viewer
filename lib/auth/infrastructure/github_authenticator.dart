@@ -6,6 +6,7 @@ import 'package:repo_viewer/auth/domain/auth_failure.dart';
 import 'package:repo_viewer/auth/infrastructure/credentials_storage/credentials_storage.dart';
 import 'package:http/http.dart' as _http;
 import 'package:repo_viewer/core/shared/encoders.dart';
+import 'package:repo_viewer/core/infrastructure/dio_extensions.dart';
 
 class GithubOAuthHttpClient extends _http.BaseClient {
   final httpClient = _http.Client();
@@ -99,17 +100,25 @@ class GithubAuthenticator {
         stringToBase64.encode('$clientId:$clientSecret');
 
     try {
-      _dio.deleteUri(
-        revocationEndpoint,
-        data: {
-          'access_token': accessToken,
-        },
-        options: Options(
-          headers: {
-            'Authorization': 'basic $usernameAndPassword',
+      try {
+        _dio.deleteUri(
+          revocationEndpoint,
+          data: {
+            'access_token': accessToken,
           },
-        ),
-      );
+          options: Options(
+            headers: {
+              'Authorization': 'basic $usernameAndPassword',
+            },
+          ),
+        );
+      } on DioError catch (e) {
+        if (e.isNoConnectionError) {
+          // Ignoring
+        } else {
+          rethrow;
+        }
+      }
       await _credentialsStorage.clear();
       return right(unit);
     } on PlatformException {
