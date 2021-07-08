@@ -28,7 +28,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future<void> signIn(AuthUriCallback authorizationCallback) async {
-    final grant = _githubAuthenticator.crateGrant();
+    final grant = _githubAuthenticator.createGrant();
 
     final redirectUrl = await authorizationCallback(
         _githubAuthenticator.getAuthorizationUrl(grant));
