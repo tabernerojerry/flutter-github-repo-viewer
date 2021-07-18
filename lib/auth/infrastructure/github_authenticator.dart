@@ -31,7 +31,7 @@ class GithubAuthenticator {
   static const scopes = ['read:user', 'repo'];
 
   static final authorizationEndpoint =
-      Uri.parse('https://api.github.com/login/oauth/authorize');
+      Uri.parse('https://github.com/login/oauth/authorize');
 
   static final tokenEndpoint =
       Uri.parse('https://github.com/login/oauth/access_token');
