@@ -18,7 +18,7 @@
     "**/.DS_Store": true,
     "**/*.freezed.dart": true,
     "**/*.g.dart": true,
-    "**/*.gr.dart": false
+    "**/*.gr.dart": true
   },
   "explorerExclude.backup": null
 }
