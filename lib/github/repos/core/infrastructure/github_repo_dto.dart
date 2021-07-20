@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:repo_viewer/github/repos/core/domain/github_repo.dart';
 import 'package:repo_viewer/github/repos/core/infrastructure/user_dto.dart';
 
 part 'github_repo_dto.freezed.dart';
@@ -19,4 +20,18 @@ class GithubRepoDto with _$GithubRepoDto {
 
   factory GithubRepoDto.fromJson(Map<String, dynamic> json) =>
       _$GithubRepoDtoFromJson(json);
+
+  factory GithubRepoDto.fromDomain(GithubRepo _) => GithubRepoDto(
+        owner: UserDto.fromDomain(_.owner),
+        name: _.name,
+        description: _.description,
+        stargazersCount: _.stargazersCount,
+      );
+
+  GithubRepo toDomain() => GithubRepo(
+        owner: owner.toDomain(),
+        name: name,
+        description: description,
+        stargazersCount: stargazersCount,
+      );
 }
