@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:repo_viewer/github/repos/core/domain/user.dart';
+import 'package:repo_viewer/github/core/domain/user.dart';
 
 part 'github_repo.freezed.dart';
 
