@@ -42,7 +42,9 @@ class StarredReposRemoteService {
       );
 
       if (response.statusCode == 304) {
-        return const RemoteResponse.notModified();
+        return RemoteResponse.notModified(
+          maxPage: previousHeaders?.link?.maxPage ?? 0,
+        );
       } else if (response.statusCode == 200) {
         final headers = GithubHeaders.parse(response);
         await _headersCache.saveHeaders(requestUri, headers);
@@ -51,7 +53,10 @@ class StarredReposRemoteService {
             .map((e) => GithubRepoDto.fromJson(e as Map<String, dynamic>))
             .toList();
 
-        return RemoteResponse.withNewData(convertedData);
+        return RemoteResponse.withNewData(
+          convertedData,
+          maxPage: headers.link?.maxPage ?? 1,
+        );
       } else {
         /// This else check is never run but just incase,
         /// something went wrong with the server
@@ -59,7 +64,9 @@ class StarredReposRemoteService {
       }
     } on DioError catch (e) {
       if (e.isNoConnectionError) {
-        return const RemoteResponse.noConnection();
+        return RemoteResponse.noConnection(
+          maxPage: previousHeaders?.link?.maxPage ?? 0,
+        );
       } else if (e.response != null) {
         throw RestApiException(e.response?.statusCode);
       } else {
