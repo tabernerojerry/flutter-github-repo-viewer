@@ -19,19 +19,17 @@ class StarredReposRepsitory {
     try {
       final remotePageItems = await _remoteService.getStarredReposPage(page);
       return right(
-        remotePageItems.when(
-          // TODO: local service
-          noConnection: (maxPage) => Fresh.no(
-            [],
+        await remotePageItems.when(
+          noConnection: (maxPage) async => Fresh.no(
+            await _localService.getPage(page).then((value) => value.toDomain()),
             isNextPageAvailable: page < maxPage,
           ),
-          // TODO: local service
-          notModified: (maxPage) => Fresh.yes(
-            [],
+          notModified: (maxPage) async => Fresh.yes(
+            await _localService.getPage(page).then((value) => value.toDomain()),
             isNextPageAvailable: page < maxPage,
           ),
-          withNewData: (data, maxPage) {
-            // TODO: save data in lcoal service
+          withNewData: (data, maxPage) async {
+            await _localService.upsertPage(data, page);
             return Fresh.yes(
               data.toDomain(),
               isNextPageAvailable: page < maxPage,
