@@ -4,13 +4,14 @@ import 'package:repo_viewer/core/infrastructure/network_exceptions.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
 import 'package:repo_viewer/github/core/infrastructure/github_repo_dto.dart';
+import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_local_service.dart';
 import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_remote_service.dart';
 
 class StarredReposRepsitory {
   final StarredReposRemoteService _remoteService;
-  // TODO: local service
+  final StarredReposLocalService _localService;
 
-  StarredReposRepsitory(this._remoteService);
+  StarredReposRepsitory(this._remoteService, this._localService);
 
   Future<Either<GithubFailure, Fresh<List<GithubRepo>>>> getStarredReposPage(
     int page,
