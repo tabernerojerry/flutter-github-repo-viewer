@@ -15,7 +15,7 @@ class RepoTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: CachedNetworkImageProvider(
-          repo.owner.avatarUrl,
+          repo.owner.avatarUrlSmall,
         ),
         backgroundColor: Colors.transparent,
       ),
@@ -25,6 +25,19 @@ class RepoTile extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
+      trailing: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.star_border),
+          Text(
+            repo.stargazersCount.toString(),
+            style: Theme.of(context).textTheme.caption,
+          ),
+        ],
+      ),
+      onTap: () {
+        // TODO: Open the detail page
+      },
     );
   }
 }
