@@ -16,7 +16,9 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
   @override
   void initState() {
     super.initState();
+
     // WidgetsBinding.instance?.addPostFrameCallback((timeStamp) { }); // Use this to safely access the build context
+
     Future.microtask(
       () => ref
           .read(starredReposNotifierProvider.notifier)
