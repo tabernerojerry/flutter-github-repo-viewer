@@ -16,26 +16,29 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
   @override
   void initState() {
     super.initState();
-    // WidgetsBinding.instance?.addPostFrameCallback((timeStamp) { }); // Use this to safely access the buil context
-    // Future.microtask(() => {});
-
-    ref.read(starredReposNotifierProvider.notifier).getNextStarredReposPage();
+    // WidgetsBinding.instance?.addPostFrameCallback((timeStamp) { }); // Use this to safely access the build context
+    Future.microtask(
+      () => ref
+          .read(starredReposNotifierProvider.notifier)
+          .getNextStarredReposPage(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Starred Repos'),
-          actions: [
-            IconButton(
-              onPressed: () {
-                ref.read(authNotifierProvider.notifier).signOut();
-              },
-              icon: const Icon(MdiIcons.logoutVariant),
-            ),
-          ],
-        ),
-        body: PaginatedReposListView());
+      appBar: AppBar(
+        title: const Text('Starred Repos'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ref.read(authNotifierProvider.notifier).signOut();
+            },
+            icon: const Icon(MdiIcons.logoutVariant),
+          ),
+        ],
+      ),
+      body: const PaginatedReposListView(),
+    );
   }
 }
