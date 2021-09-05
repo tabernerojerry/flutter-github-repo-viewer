@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nil/nil.dart';
 import 'package:repo_viewer/core/presentation/toasts.dart';
+import 'package:repo_viewer/github/core/presentation/no_results_display.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
 import 'package:repo_viewer/github/repos/starred_repos/application/starred_repos_notifier.dart';
 import 'package:repo_viewer/github/repos/starred_repos/presentation/repo_tile.dart';
@@ -62,7 +63,15 @@ class _PaginatedReposListViewState extends State<PaginatedReposListView> {
             }
             return false;
           },
-          child: _PaginatedListView(state: state),
+          child: state.maybeWhen(
+            loadSuccess: (repos, _) => repos.entity.isEmpty,
+            orElse: () => false,
+          )
+              ? const NoResultsDisplay(
+                  message:
+                      "That's about everything we could find in your starred repos right now.",
+                )
+              : _PaginatedListView(state: state),
         );
       },
     );
