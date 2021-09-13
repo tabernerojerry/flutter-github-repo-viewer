@@ -278,7 +278,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.6"
+    version: "1.0.0-dev.7"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -332,7 +332,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.6"
+    version: "1.0.0-dev.7"
   http:
     dependency: transitive
     description:
@@ -465,7 +465,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   path_provider_linux:
     dependency: transitive
     description:
@@ -549,7 +549,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.6"
+    version: "1.0.0-dev.7"
   rxdart:
     dependency: transitive
     description:
@@ -722,7 +722,7 @@ packages:
       name: webview_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.12"
+    version: "2.0.13"
   win32:
     dependency: transitive
     description:
