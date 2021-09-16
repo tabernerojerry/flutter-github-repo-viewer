@@ -34,6 +34,7 @@ class PaginatedReposNotifier extends StateNotifier<PaginatedReposState> {
 
   PaginatedReposNotifier() : super(PaginatedReposState.initial(Fresh.yes([])));
 
+  @protected
   Future<void> getNextPage(
     RepositoryGetter getter,
   ) async {
