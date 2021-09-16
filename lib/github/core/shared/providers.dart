@@ -4,7 +4,7 @@ import 'package:repo_viewer/github/core/infrastructure/github_headers_cache.dart
 import 'package:repo_viewer/github/repos/starred_repos/application/starred_repos_notifier.dart';
 import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_local_service.dart';
 import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_remote_service.dart';
-import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_repsitory.dart';
+import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_repository.dart';
 
 final githubHeadersCacheProvider = Provider(
   (ref) => GithubHeadersCache(ref.watch(sembastProvider)),
@@ -22,7 +22,7 @@ final starredReposRemoteServiceProvider = Provider(
 );
 
 final starredReposRepository = Provider(
-  (ref) => StarredReposRepsitory(
+  (ref) => StarredReposRepository(
     ref.watch(starredReposRemoteServiceProvider),
     ref.watch(starredReposLocalServiceProvider),
   ),

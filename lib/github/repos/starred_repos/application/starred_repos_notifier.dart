@@ -4,7 +4,7 @@ import 'package:repo_viewer/core/domain/fresh.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
 import 'package:repo_viewer/github/core/infrastructure/pagination_config.dart';
-import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_repsitory.dart';
+import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_repository.dart';
 
 part 'starred_repos_notifier.freezed.dart';
 
@@ -27,7 +27,7 @@ class StarredReposState with _$StarredReposState {
 }
 
 class StarredReposNotifier extends StateNotifier<StarredReposState> {
-  final StarredReposRepsitory _repsitory;
+  final StarredReposRepository _repsitory;
 
   int _page = 1;
 
