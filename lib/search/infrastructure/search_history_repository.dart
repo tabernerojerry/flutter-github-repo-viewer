@@ -21,6 +21,17 @@ class SearchHistoryRepository {
               : null,
         )
         .onSnapshots(sembastDatabase.instance)
-        .map((records) => records.map((e) => e.value).toList());
+        .map((records) => records.reversed.map((e) => e.value).toList());
+  }
+
+  Future<void> addSearchTerm(String term) async {
+    await _store.add(sembastDatabase.instance, term);
+    final count = await _store.count(sembastDatabase.instance);
+    if (count > historyLength) {
+      await _store.delete(
+        sembastDatabase.instance,
+        finder: Finder(limit: count - historyLength, offset: 0),
+      );
+    }
   }
 }
