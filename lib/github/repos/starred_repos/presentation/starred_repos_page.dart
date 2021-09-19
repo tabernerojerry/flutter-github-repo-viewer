@@ -40,7 +40,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
           IconButton(
             onPressed: () {
               AutoRouter.of(context)
-                  .push(SearchedReposRoute(searchTerm: 'react'));
+                  .push(SearchedReposRoute(searchTerm: 'flutter'));
             },
             icon: const Icon(MdiIcons.magnify),
           ),
