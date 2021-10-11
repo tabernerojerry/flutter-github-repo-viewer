@@ -1,6 +1,14 @@
 {
   "window.zoomLevel": 0,
   "dart.previewFlutterUiGuides": true,
+  // Remove .fvm files from search
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
   "[dart]": {
     "editor.defaultFormatter": "Dart-Code.dart-code",
     "files.trimTrailingWhitespace": true,

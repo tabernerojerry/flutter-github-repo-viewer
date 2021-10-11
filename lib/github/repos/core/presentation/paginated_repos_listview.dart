@@ -87,7 +87,6 @@ class _PaginatedListView extends StatelessWidget {
     Key? key,
     required this.state,
   }) : super(key: key);
-
   final PaginatedReposState state;
 
   @override
