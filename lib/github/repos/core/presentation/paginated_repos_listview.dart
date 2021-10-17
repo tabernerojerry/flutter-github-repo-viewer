@@ -94,7 +94,9 @@ class _PaginatedListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final top = FloatingSearchBar.of(context)?.widget.height;
     return ListView.builder(
-      padding: EdgeInsets.only(top: top == null ? 0 : top + 8.0),
+      padding: EdgeInsets.only(
+        top: top == null ? 0 : top + 8.0 + MediaQuery.of(context).padding.top,
+      ),
       itemCount: state.map(
         initial: (_) => 0,
         loadInProgress: (_) => _.repos.entity.length + _.itemsPerPage,
