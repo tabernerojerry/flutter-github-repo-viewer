@@ -17,7 +17,7 @@ class RepoDetailRemoteService {
   Future<RemoteResponse<String>> getReadMeHtml(String fullRepoName) async {
     final requestUri = Uri.https(
       'api.github.com',
-      '/',
+      '/repos/$fullRepoName/readme',
     );
 
     final previousHeaders = await _headersCache.getHeaders(requestUri);
@@ -50,6 +50,38 @@ class RepoDetailRemoteService {
     } on DioError catch (e) {
       if (e.isNoConnectionError) {
         return const RemoteResponse.noConnection();
+      } else if (e.response != null) {
+        throw RestApiException(e.response?.statusCode);
+      } else {
+        rethrow;
+      }
+    }
+  }
+
+  /// Return 'null' if there's no Internet connection
+  Future<bool?> getStarredStatus(String fullRepoName) async {
+    final requestUri = Uri.https(
+      'api.github.com',
+      '/user/starred/$fullRepoName',
+    );
+
+    try {
+      final response = await _dio.getUri(
+        requestUri,
+        options: Options(
+            validateStatus: (status) =>
+                (status != null && status >= 200 && status < 400) ||
+                status == 404),
+      );
+
+      if (response.statusCode == 204) return true;
+
+      if (response.statusCode == 404) return false;
+
+      throw RestApiException(response.statusCode);
+    } on DioError catch (e) {
+      if (e.isNoConnectionError) {
+        return null;
       } else if (e.response != null) {
         throw RestApiException(e.response?.statusCode);
       } else {
