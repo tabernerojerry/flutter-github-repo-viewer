@@ -37,7 +37,7 @@ class _SearchedReposPageState extends ConsumerState<SearchedReposPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SearchBar(
-        title: 'Starred repositories',
+        title: widget.searchTerm,
         hint: 'Search all repositories',
         onShouldNavigateToResultPage: (searchTerm) {
           AutoRouter.of(context).pushAndPopUntil(
