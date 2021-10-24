@@ -26,9 +26,13 @@ class SearchBar extends ConsumerStatefulWidget {
 }
 
 class _SearchBarState extends ConsumerState<SearchBar> {
+  late FloatingSearchBarController _controller;
+
   @override
   void initState() {
     super.initState();
+
+    _controller = FloatingSearchBarController();
 
     Future.microtask(() {
       ref.read(searchHistoryNotifierProvider.notifier).watchSearchTerms();
@@ -36,8 +40,15 @@ class _SearchBarState extends ConsumerState<SearchBar> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FloatingSearchBar(
+      controller: _controller,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -68,6 +79,11 @@ class _SearchBarState extends ConsumerState<SearchBar> {
           ),
         )
       ],
+      onSubmitted: (query) {
+        widget.onShouldNavigateToResultPage(query);
+        ref.read(searchHistoryNotifierProvider.notifier).addSearchTerm(query);
+        _controller.close(); // auto-close and clear the search bar
+      },
       builder: (context, transition) {
         return Consumer(
           builder: (context, ref, child) {
