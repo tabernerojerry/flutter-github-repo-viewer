@@ -85,29 +85,37 @@ class _SearchBarState extends ConsumerState<SearchBar> {
         _controller.close(); // auto-close and clear the search bar
       },
       builder: (context, transition) {
-        return Consumer(
-          builder: (context, ref, child) {
-            final searchHistoryState = ref.watch(searchHistoryNotifierProvider);
-            return searchHistoryState.map(
-              data: (history) {
-                return Column(
-                  children: history.value
-                      .map(
-                        (term) => ListTile(
-                          title: Text(term),
-                        ),
-                      )
-                      .toList(),
-                );
-              },
-              loading: (_) => const ListTile(
-                title: LinearProgressIndicator(),
-              ),
-              error: (_) => ListTile(
-                title: Text('Very unexpected error ${_.error}'),
-              ),
-            );
-          },
+        return Material(
+          color: Theme.of(context).cardColor,
+          elevation: 4.0,
+          borderRadius: BorderRadius.circular(8.0),
+          clipBehavior: Clip.hardEdge,
+          child: Consumer(
+            builder: (context, ref, child) {
+              final searchHistoryState =
+                  ref.watch(searchHistoryNotifierProvider);
+              return searchHistoryState.map(
+                data: (history) {
+                  return Column(
+                    children: history.value
+                        .map(
+                          (term) => ListTile(
+                            title: Text(term),
+                            onTap: () {},
+                          ),
+                        )
+                        .toList(),
+                  );
+                },
+                loading: (_) => const ListTile(
+                  title: LinearProgressIndicator(),
+                ),
+                error: (_) => ListTile(
+                  title: Text('Very unexpected error ${_.error}'),
+                ),
+              );
+            },
+          ),
         );
       },
     );
