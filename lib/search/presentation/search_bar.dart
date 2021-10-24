@@ -47,6 +47,26 @@ class _SearchBarState extends ConsumerState<SearchBar> {
 
   @override
   Widget build(BuildContext context) {
+    void pushPageAndPutFirstInHistory(String searchTerm) {
+      widget.onShouldNavigateToResultPage(searchTerm);
+
+      ref
+          .read(searchHistoryNotifierProvider.notifier)
+          .putSearchTermFirst(searchTerm);
+
+      _controller.close();
+    }
+
+    void pushPageAndAddToHistory(String searchTerm) {
+      widget.onShouldNavigateToResultPage(searchTerm);
+
+      ref
+          .read(searchHistoryNotifierProvider.notifier)
+          .addSearchTerm(searchTerm);
+
+      _controller.close(); // auto-close and clear the search bar
+    }
+
     return FloatingSearchBar(
       controller: _controller,
       title: Column(
@@ -72,17 +92,20 @@ class _SearchBarState extends ConsumerState<SearchBar> {
         FloatingSearchBarAction(
           child: IconButton(
             onPressed: () {
-              // widget.onSignOutButtonPressed();
+              widget.onSignOutButtonPressed();
             },
             icon: const Icon(MdiIcons.loginVariant),
             splashRadius: 18.0,
           ),
         )
       ],
+      onQueryChanged: (query) {
+        ref
+            .read(searchHistoryNotifierProvider.notifier)
+            .watchSearchTerms(filter: query);
+      },
       onSubmitted: (query) {
-        widget.onShouldNavigateToResultPage(query);
-        ref.read(searchHistoryNotifierProvider.notifier).addSearchTerm(query);
-        _controller.close(); // auto-close and clear the search bar
+        pushPageAndAddToHistory(query);
       },
       builder: (context, transition) {
         return Material(
@@ -96,12 +119,47 @@ class _SearchBarState extends ConsumerState<SearchBar> {
                   ref.watch(searchHistoryNotifierProvider);
               return searchHistoryState.map(
                 data: (history) {
+                  if (_controller.query.isEmpty && history.value.isEmpty) {
+                    return Container(
+                      height: 56.0,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Start searching',
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                    );
+                  } else if (history.value.isEmpty) {
+                    return ListTile(
+                      title: Text(_controller.query),
+                      leading: const Icon(Icons.search),
+                      onTap: () {
+                        pushPageAndAddToHistory(_controller.query);
+                      },
+                    );
+                  }
+
                   return Column(
                     children: history.value
                         .map(
                           (term) => ListTile(
-                            title: Text(term),
-                            onTap: () {},
+                            title: Text(
+                              term,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            leading: const Icon(Icons.history),
+                            trailing: IconButton(
+                              onPressed: () {
+                                ref
+                                    .read(
+                                        searchHistoryNotifierProvider.notifier)
+                                    .deleteSearchTerm(term);
+                              },
+                              icon: const Icon(Icons.clear),
+                            ),
+                            onTap: () {
+                              pushPageAndPutFirstInHistory(term);
+                            },
                           ),
                         )
                         .toList(),
