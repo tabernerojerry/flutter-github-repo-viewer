@@ -1,13 +1,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:repo_viewer/github/detail/domain/github_repo_detail.dart';
 import 'package:sembast/sembast.dart';
+import 'package:sembast/timestamp.dart';
 
 part 'github_repo_detail_dto.freezed.dart';
 part 'github_repo_detail_dto.g.dart';
 
 @freezed
 class GithubRepoDetailDto with _$GithubRepoDetailDto {
+  static const lastUsedFieldName = 'lastUsed';
+
   const GithubRepoDetailDto._();
+
   const factory GithubRepoDetailDto({
     required String fullName,
     required String html,
@@ -23,6 +27,7 @@ class GithubRepoDetailDto with _$GithubRepoDetailDto {
   Map<String, dynamic> toSembast() {
     final json = toJson();
     json.remove('fullName');
+    json[lastUsedFieldName] = Timestamp.now();
     return json;
   }
 
