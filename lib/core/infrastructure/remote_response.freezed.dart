@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'remote_response.dart';
 
@@ -47,6 +48,13 @@ mixin _$RemoteResponse<T> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noConnection,
+    TResult Function(int maxPage)? notModified,
+    TResult Function(T data, int maxPage)? withNewData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function(int maxPage)? notModified,
@@ -59,6 +67,13 @@ mixin _$RemoteResponse<T> {
     required TResult Function(_NoConnection<T> value) noConnection,
     required TResult Function(_NotModified<T> value) notModified,
     required TResult Function(_WithNewData<T> value) withNewData,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoConnection<T> value)? noConnection,
+    TResult Function(_NotModified<T> value)? notModified,
+    TResult Function(_WithNewData<T> value)? withNewData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -119,7 +134,8 @@ class _$_NoConnection<T> extends _NoConnection<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _NoConnection<T>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _NoConnection<T>);
   }
 
   @override
@@ -133,6 +149,16 @@ class _$_NoConnection<T> extends _NoConnection<T> {
     required TResult Function(T data, int maxPage) withNewData,
   }) {
     return noConnection();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noConnection,
+    TResult Function(int maxPage)? notModified,
+    TResult Function(T data, int maxPage)? withNewData,
+  }) {
+    return noConnection?.call();
   }
 
   @override
@@ -157,6 +183,16 @@ class _$_NoConnection<T> extends _NoConnection<T> {
     required TResult Function(_WithNewData<T> value) withNewData,
   }) {
     return noConnection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoConnection<T> value)? noConnection,
+    TResult Function(_NotModified<T> value)? notModified,
+    TResult Function(_WithNewData<T> value)? withNewData,
+  }) {
+    return noConnection?.call(this);
   }
 
   @override
@@ -227,14 +263,13 @@ class _$_NotModified<T> extends _NotModified<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NotModified<T> &&
-            (identical(other.maxPage, maxPage) ||
-                const DeepCollectionEquality().equals(other.maxPage, maxPage)));
+        (other.runtimeType == runtimeType &&
+            other is _NotModified<T> &&
+            (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(maxPage);
+  int get hashCode => Object.hash(runtimeType, maxPage);
 
   @JsonKey(ignore: true)
   @override
@@ -249,6 +284,16 @@ class _$_NotModified<T> extends _NotModified<T> {
     required TResult Function(T data, int maxPage) withNewData,
   }) {
     return notModified(maxPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noConnection,
+    TResult Function(int maxPage)? notModified,
+    TResult Function(T data, int maxPage)? withNewData,
+  }) {
+    return notModified?.call(maxPage);
   }
 
   @override
@@ -277,6 +322,16 @@ class _$_NotModified<T> extends _NotModified<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoConnection<T> value)? noConnection,
+    TResult Function(_NotModified<T> value)? notModified,
+    TResult Function(_WithNewData<T> value)? withNewData,
+  }) {
+    return notModified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NoConnection<T> value)? noConnection,
     TResult Function(_NotModified<T> value)? notModified,
@@ -294,7 +349,7 @@ abstract class _NotModified<T> extends RemoteResponse<T> {
   const factory _NotModified({required int maxPage}) = _$_NotModified<T>;
   const _NotModified._() : super._();
 
-  int get maxPage => throw _privateConstructorUsedError;
+  int get maxPage;
   @JsonKey(ignore: true)
   _$NotModifiedCopyWith<T, _NotModified<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -355,18 +410,15 @@ class _$_WithNewData<T> extends _WithNewData<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WithNewData<T> &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.maxPage, maxPage) ||
-                const DeepCollectionEquality().equals(other.maxPage, maxPage)));
+        (other.runtimeType == runtimeType &&
+            other is _WithNewData<T> &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(maxPage);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(data), maxPage);
 
   @JsonKey(ignore: true)
   @override
@@ -381,6 +433,16 @@ class _$_WithNewData<T> extends _WithNewData<T> {
     required TResult Function(T data, int maxPage) withNewData,
   }) {
     return withNewData(data, maxPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noConnection,
+    TResult Function(int maxPage)? notModified,
+    TResult Function(T data, int maxPage)? withNewData,
+  }) {
+    return withNewData?.call(data, maxPage);
   }
 
   @override
@@ -409,6 +471,16 @@ class _$_WithNewData<T> extends _WithNewData<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoConnection<T> value)? noConnection,
+    TResult Function(_NotModified<T> value)? notModified,
+    TResult Function(_WithNewData<T> value)? withNewData,
+  }) {
+    return withNewData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NoConnection<T> value)? noConnection,
     TResult Function(_NotModified<T> value)? notModified,
@@ -427,8 +499,8 @@ abstract class _WithNewData<T> extends RemoteResponse<T> {
       _$_WithNewData<T>;
   const _WithNewData._() : super._();
 
-  T get data => throw _privateConstructorUsedError;
-  int get maxPage => throw _privateConstructorUsedError;
+  T get data;
+  int get maxPage;
   @JsonKey(ignore: true)
   _$WithNewDataCopyWith<T, _WithNewData<T>> get copyWith =>
       throw _privateConstructorUsedError;

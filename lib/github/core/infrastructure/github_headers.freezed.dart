@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_headers.dart';
 
@@ -27,7 +28,7 @@ class _$GithubHeadersTearOff {
     );
   }
 
-  GithubHeaders fromJson(Map<String, Object> json) {
+  GithubHeaders fromJson(Map<String, Object?> json) {
     return GithubHeaders.fromJson(json);
   }
 }
@@ -142,7 +143,7 @@ class _$_GithubHeaders extends _GithubHeaders {
   const _$_GithubHeaders({this.etag, this.link}) : super._();
 
   factory _$_GithubHeaders.fromJson(Map<String, dynamic> json) =>
-      _$_$_GithubHeadersFromJson(json);
+      _$$_GithubHeadersFromJson(json);
 
   @override
   final String? etag;
@@ -157,18 +158,14 @@ class _$_GithubHeaders extends _GithubHeaders {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GithubHeaders &&
-            (identical(other.etag, etag) ||
-                const DeepCollectionEquality().equals(other.etag, etag)) &&
-            (identical(other.link, link) ||
-                const DeepCollectionEquality().equals(other.link, link)));
+        (other.runtimeType == runtimeType &&
+            other is _GithubHeaders &&
+            (identical(other.etag, etag) || other.etag == etag) &&
+            (identical(other.link, link) || other.link == link));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(etag) ^
-      const DeepCollectionEquality().hash(link);
+  int get hashCode => Object.hash(runtimeType, etag, link);
 
   @JsonKey(ignore: true)
   @override
@@ -177,7 +174,7 @@ class _$_GithubHeaders extends _GithubHeaders {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_GithubHeadersToJson(this);
+    return _$$_GithubHeadersToJson(this);
   }
 }
 
@@ -190,9 +187,9 @@ abstract class _GithubHeaders extends GithubHeaders {
       _$_GithubHeaders.fromJson;
 
   @override
-  String? get etag => throw _privateConstructorUsedError;
+  String? get etag;
   @override
-  PaginationLink? get link => throw _privateConstructorUsedError;
+  PaginationLink? get link;
   @override
   @JsonKey(ignore: true)
   _$GithubHeadersCopyWith<_GithubHeaders> get copyWith =>
@@ -213,7 +210,7 @@ class _$PaginationLinkTearOff {
     );
   }
 
-  PaginationLink fromJson(Map<String, Object> json) {
+  PaginationLink fromJson(Map<String, Object?> json) {
     return PaginationLink.fromJson(json);
   }
 }
@@ -301,7 +298,7 @@ class _$_PaginationLink extends _PaginationLink {
   const _$_PaginationLink({required this.maxPage}) : super._();
 
   factory _$_PaginationLink.fromJson(Map<String, dynamic> json) =>
-      _$_$_PaginationLinkFromJson(json);
+      _$$_PaginationLinkFromJson(json);
 
   @override
   final int maxPage;
@@ -314,14 +311,13 @@ class _$_PaginationLink extends _PaginationLink {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PaginationLink &&
-            (identical(other.maxPage, maxPage) ||
-                const DeepCollectionEquality().equals(other.maxPage, maxPage)));
+        (other.runtimeType == runtimeType &&
+            other is _PaginationLink &&
+            (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(maxPage);
+  int get hashCode => Object.hash(runtimeType, maxPage);
 
   @JsonKey(ignore: true)
   @override
@@ -330,7 +326,7 @@ class _$_PaginationLink extends _PaginationLink {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PaginationLinkToJson(this);
+    return _$$_PaginationLinkToJson(this);
   }
 }
 
@@ -342,7 +338,7 @@ abstract class _PaginationLink extends PaginationLink {
       _$_PaginationLink.fromJson;
 
   @override
-  int get maxPage => throw _privateConstructorUsedError;
+  int get maxPage;
   @override
   @JsonKey(ignore: true)
   _$PaginationLinkCopyWith<_PaginationLink> get copyWith =>

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_repo_detail_dto.dart';
 
@@ -29,7 +30,7 @@ class _$GithubRepoDetailDtoTearOff {
     );
   }
 
-  GithubRepoDetailDto fromJson(Map<String, Object> json) {
+  GithubRepoDetailDto fromJson(Map<String, Object?> json) {
     return GithubRepoDetailDto.fromJson(json);
   }
 }
@@ -141,7 +142,7 @@ class _$_GithubRepoDetailDto extends _GithubRepoDetailDto {
       : super._();
 
   factory _$_GithubRepoDetailDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_GithubRepoDetailDtoFromJson(json);
+      _$$_GithubRepoDetailDtoFromJson(json);
 
   @override
   final String fullName;
@@ -158,22 +159,16 @@ class _$_GithubRepoDetailDto extends _GithubRepoDetailDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GithubRepoDetailDto &&
+        (other.runtimeType == runtimeType &&
+            other is _GithubRepoDetailDto &&
             (identical(other.fullName, fullName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fullName, fullName)) &&
-            (identical(other.html, html) ||
-                const DeepCollectionEquality().equals(other.html, html)) &&
-            (identical(other.starred, starred) ||
-                const DeepCollectionEquality().equals(other.starred, starred)));
+                other.fullName == fullName) &&
+            (identical(other.html, html) || other.html == html) &&
+            (identical(other.starred, starred) || other.starred == starred));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fullName) ^
-      const DeepCollectionEquality().hash(html) ^
-      const DeepCollectionEquality().hash(starred);
+  int get hashCode => Object.hash(runtimeType, fullName, html, starred);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +178,7 @@ class _$_GithubRepoDetailDto extends _GithubRepoDetailDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_GithubRepoDetailDtoToJson(this);
+    return _$$_GithubRepoDetailDtoToJson(this);
   }
 }
 
@@ -198,11 +193,11 @@ abstract class _GithubRepoDetailDto extends GithubRepoDetailDto {
       _$_GithubRepoDetailDto.fromJson;
 
   @override
-  String get fullName => throw _privateConstructorUsedError;
+  String get fullName;
   @override
-  String get html => throw _privateConstructorUsedError;
+  String get html;
   @override
-  bool get starred => throw _privateConstructorUsedError;
+  bool get starred;
   @override
   @JsonKey(ignore: true)
   _$GithubRepoDetailDtoCopyWith<_GithubRepoDetailDto> get copyWith =>

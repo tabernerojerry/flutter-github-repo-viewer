@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_repo_dto.dart';
 
@@ -33,7 +34,7 @@ class _$GithubRepoDtoTearOff {
     );
   }
 
-  GithubRepoDto fromJson(Map<String, Object> json) {
+  GithubRepoDto fromJson(Map<String, Object?> json) {
     return GithubRepoDto.fromJson(json);
   }
 }
@@ -181,7 +182,7 @@ class _$_GithubRepoDto extends _GithubRepoDto {
       : super._();
 
   factory _$_GithubRepoDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_GithubRepoDtoFromJson(json);
+      _$$_GithubRepoDtoFromJson(json);
 
   @override
   final UserDto owner;
@@ -202,26 +203,19 @@ class _$_GithubRepoDto extends _GithubRepoDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GithubRepoDto &&
-            (identical(other.owner, owner) ||
-                const DeepCollectionEquality().equals(other.owner, owner)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _GithubRepoDto &&
+            (identical(other.owner, owner) || other.owner == owner) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
+                other.description == description) &&
             (identical(other.stargazersCount, stargazersCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.stargazersCount, stargazersCount)));
+                other.stargazersCount == stargazersCount));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(owner) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(stargazersCount);
+      Object.hash(runtimeType, owner, name, description, stargazersCount);
 
   @JsonKey(ignore: true)
   @override
@@ -230,7 +224,7 @@ class _$_GithubRepoDto extends _GithubRepoDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_GithubRepoDtoToJson(this);
+    return _$$_GithubRepoDtoToJson(this);
   }
 }
 
@@ -247,15 +241,15 @@ abstract class _GithubRepoDto extends GithubRepoDto {
       _$_GithubRepoDto.fromJson;
 
   @override
-  UserDto get owner => throw _privateConstructorUsedError;
+  UserDto get owner;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(fromJson: _descriptionFromJson)
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
   @JsonKey(name: 'stargazers_count')
-  int get stargazersCount => throw _privateConstructorUsedError;
+  int get stargazersCount;
   @override
   @JsonKey(ignore: true)
   _$GithubRepoDtoCopyWith<_GithubRepoDto> get copyWith =>

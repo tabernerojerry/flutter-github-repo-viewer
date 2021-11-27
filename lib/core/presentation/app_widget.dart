@@ -30,22 +30,23 @@ class AppWidget extends ConsumerWidget {
   final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(initializationProvider, (_) {});
-    ref.listen<AuthState>(authNotifierProvider, (state) {
+    ref.listen(initializationProvider, (_, __) {});
+    ref.listen<AuthState>(authNotifierProvider, (_, state) {
       state.maybeMap(
-          orElse: () {},
-          authenticated: (_) {
-            _appRouter.pushAndPopUntil(
-              const StarredReposRoute(),
-              predicate: (_) => false,
-            );
-          },
-          unauthenticated: (_) {
-            _appRouter.pushAndPopUntil(
-              const SignInRoute(),
-              predicate: (_) => false,
-            );
-          });
+        orElse: () {},
+        authenticated: (_) {
+          _appRouter.pushAndPopUntil(
+            const StarredReposRoute(),
+            predicate: (_) => false,
+          );
+        },
+        unauthenticated: (_) {
+          _appRouter.pushAndPopUntil(
+            const SignInRoute(),
+            predicate: (_) => false,
+          );
+        },
+      );
     });
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'paginated_repos_notifier.dart';
 
@@ -68,6 +69,17 @@ mixin _$PaginatedReposState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Fresh<List<GithubRepo>> repos)? initial,
+    TResult Function(Fresh<List<GithubRepo>> repos, int itemsPerPage)?
+        loadInProgress,
+    TResult Function(Fresh<List<GithubRepo>> repos, bool isNextPageAvailable)?
+        loadSuccess,
+    TResult Function(Fresh<List<GithubRepo>> repos, GithubFailure failure)?
+        loadFailuer,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Fresh<List<GithubRepo>> repos)? initial,
     TResult Function(Fresh<List<GithubRepo>> repos, int itemsPerPage)?
@@ -85,6 +97,14 @@ mixin _$PaginatedReposState {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailuer,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailuer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -192,14 +212,13 @@ class _$_Initial extends _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Initial &&
-            (identical(other.repos, repos) ||
-                const DeepCollectionEquality().equals(other.repos, repos)));
+        (other.runtimeType == runtimeType &&
+            other is _Initial &&
+            (identical(other.repos, repos) || other.repos == repos));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(repos);
+  int get hashCode => Object.hash(runtimeType, repos);
 
   @JsonKey(ignore: true)
   @override
@@ -220,6 +239,20 @@ class _$_Initial extends _Initial {
         loadFailuer,
   }) {
     return initial(repos);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Fresh<List<GithubRepo>> repos)? initial,
+    TResult Function(Fresh<List<GithubRepo>> repos, int itemsPerPage)?
+        loadInProgress,
+    TResult Function(Fresh<List<GithubRepo>> repos, bool isNextPageAvailable)?
+        loadSuccess,
+    TResult Function(Fresh<List<GithubRepo>> repos, GithubFailure failure)?
+        loadFailuer,
+  }) {
+    return initial?.call(repos);
   }
 
   @override
@@ -253,6 +286,17 @@ class _$_Initial extends _Initial {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailuer,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
@@ -272,7 +316,7 @@ abstract class _Initial extends PaginatedReposState {
   const _Initial._() : super._();
 
   @override
-  Fresh<List<GithubRepo>> get repos => throw _privateConstructorUsedError;
+  Fresh<List<GithubRepo>> get repos;
   @override
   @JsonKey(ignore: true)
   _$InitialCopyWith<_Initial> get copyWith =>
@@ -339,19 +383,15 @@ class _$_LoadInProgress extends _LoadInProgress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadInProgress &&
-            (identical(other.repos, repos) ||
-                const DeepCollectionEquality().equals(other.repos, repos)) &&
+        (other.runtimeType == runtimeType &&
+            other is _LoadInProgress &&
+            (identical(other.repos, repos) || other.repos == repos) &&
             (identical(other.itemsPerPage, itemsPerPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemsPerPage, itemsPerPage)));
+                other.itemsPerPage == itemsPerPage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(repos) ^
-      const DeepCollectionEquality().hash(itemsPerPage);
+  int get hashCode => Object.hash(runtimeType, repos, itemsPerPage);
 
   @JsonKey(ignore: true)
   @override
@@ -372,6 +412,20 @@ class _$_LoadInProgress extends _LoadInProgress {
         loadFailuer,
   }) {
     return loadInProgress(repos, itemsPerPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Fresh<List<GithubRepo>> repos)? initial,
+    TResult Function(Fresh<List<GithubRepo>> repos, int itemsPerPage)?
+        loadInProgress,
+    TResult Function(Fresh<List<GithubRepo>> repos, bool isNextPageAvailable)?
+        loadSuccess,
+    TResult Function(Fresh<List<GithubRepo>> repos, GithubFailure failure)?
+        loadFailuer,
+  }) {
+    return loadInProgress?.call(repos, itemsPerPage);
   }
 
   @override
@@ -405,6 +459,17 @@ class _$_LoadInProgress extends _LoadInProgress {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailuer,
+  }) {
+    return loadInProgress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
@@ -425,8 +490,8 @@ abstract class _LoadInProgress extends PaginatedReposState {
   const _LoadInProgress._() : super._();
 
   @override
-  Fresh<List<GithubRepo>> get repos => throw _privateConstructorUsedError;
-  int get itemsPerPage => throw _privateConstructorUsedError;
+  Fresh<List<GithubRepo>> get repos;
+  int get itemsPerPage;
   @override
   @JsonKey(ignore: true)
   _$LoadInProgressCopyWith<_LoadInProgress> get copyWith =>
@@ -494,19 +559,15 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadSuccess &&
-            (identical(other.repos, repos) ||
-                const DeepCollectionEquality().equals(other.repos, repos)) &&
+        (other.runtimeType == runtimeType &&
+            other is _LoadSuccess &&
+            (identical(other.repos, repos) || other.repos == repos) &&
             (identical(other.isNextPageAvailable, isNextPageAvailable) ||
-                const DeepCollectionEquality()
-                    .equals(other.isNextPageAvailable, isNextPageAvailable)));
+                other.isNextPageAvailable == isNextPageAvailable));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(repos) ^
-      const DeepCollectionEquality().hash(isNextPageAvailable);
+  int get hashCode => Object.hash(runtimeType, repos, isNextPageAvailable);
 
   @JsonKey(ignore: true)
   @override
@@ -527,6 +588,20 @@ class _$_LoadSuccess extends _LoadSuccess {
         loadFailuer,
   }) {
     return loadSuccess(repos, isNextPageAvailable);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Fresh<List<GithubRepo>> repos)? initial,
+    TResult Function(Fresh<List<GithubRepo>> repos, int itemsPerPage)?
+        loadInProgress,
+    TResult Function(Fresh<List<GithubRepo>> repos, bool isNextPageAvailable)?
+        loadSuccess,
+    TResult Function(Fresh<List<GithubRepo>> repos, GithubFailure failure)?
+        loadFailuer,
+  }) {
+    return loadSuccess?.call(repos, isNextPageAvailable);
   }
 
   @override
@@ -560,6 +635,17 @@ class _$_LoadSuccess extends _LoadSuccess {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailuer,
+  }) {
+    return loadSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
@@ -580,8 +666,8 @@ abstract class _LoadSuccess extends PaginatedReposState {
   const _LoadSuccess._() : super._();
 
   @override
-  Fresh<List<GithubRepo>> get repos => throw _privateConstructorUsedError;
-  bool get isNextPageAvailable => throw _privateConstructorUsedError;
+  Fresh<List<GithubRepo>> get repos;
+  bool get isNextPageAvailable;
   @override
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
@@ -656,18 +742,14 @@ class _$_LoadFailure extends _LoadFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadFailure &&
-            (identical(other.repos, repos) ||
-                const DeepCollectionEquality().equals(other.repos, repos)) &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
+        (other.runtimeType == runtimeType &&
+            other is _LoadFailure &&
+            (identical(other.repos, repos) || other.repos == repos) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(repos) ^
-      const DeepCollectionEquality().hash(failure);
+  int get hashCode => Object.hash(runtimeType, repos, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -688,6 +770,20 @@ class _$_LoadFailure extends _LoadFailure {
         loadFailuer,
   }) {
     return loadFailuer(repos, failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Fresh<List<GithubRepo>> repos)? initial,
+    TResult Function(Fresh<List<GithubRepo>> repos, int itemsPerPage)?
+        loadInProgress,
+    TResult Function(Fresh<List<GithubRepo>> repos, bool isNextPageAvailable)?
+        loadSuccess,
+    TResult Function(Fresh<List<GithubRepo>> repos, GithubFailure failure)?
+        loadFailuer,
+  }) {
+    return loadFailuer?.call(repos, failure);
   }
 
   @override
@@ -721,6 +817,17 @@ class _$_LoadFailure extends _LoadFailure {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailuer,
+  }) {
+    return loadFailuer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
@@ -741,8 +848,8 @@ abstract class _LoadFailure extends PaginatedReposState {
   const _LoadFailure._() : super._();
 
   @override
-  Fresh<List<GithubRepo>> get repos => throw _privateConstructorUsedError;
-  GithubFailure get failure => throw _privateConstructorUsedError;
+  Fresh<List<GithubRepo>> get repos;
+  GithubFailure get failure;
   @override
   @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>

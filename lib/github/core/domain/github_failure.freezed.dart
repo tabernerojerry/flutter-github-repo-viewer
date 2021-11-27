@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_failure.dart';
 
@@ -36,6 +37,11 @@ mixin _$GithubFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int? errorCode)? api,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? errorCode)? api,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$GithubFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Api value) api,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Api value)? api,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -134,15 +145,14 @@ class _$_Api extends _Api {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Api &&
+        (other.runtimeType == runtimeType &&
+            other is _Api &&
             (identical(other.errorCode, errorCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorCode, errorCode)));
+                other.errorCode == errorCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorCode);
+  int get hashCode => Object.hash(runtimeType, errorCode);
 
   @JsonKey(ignore: true)
   @override
@@ -155,6 +165,14 @@ class _$_Api extends _Api {
     required TResult Function(int? errorCode) api,
   }) {
     return api(errorCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int? errorCode)? api,
+  }) {
+    return api?.call(errorCode);
   }
 
   @override
@@ -179,6 +197,14 @@ class _$_Api extends _Api {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Api value)? api,
+  }) {
+    return api?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Api value)? api,
     required TResult orElse(),
@@ -195,7 +221,7 @@ abstract class _Api extends GithubFailure {
   const _Api._() : super._();
 
   @override
-  int? get errorCode => throw _privateConstructorUsedError;
+  int? get errorCode;
   @override
   @JsonKey(ignore: true)
   _$ApiCopyWith<_Api> get copyWith => throw _privateConstructorUsedError;
