@@ -13,6 +13,7 @@ import 'package:repo_viewer/github/core/shared/providers.dart';
 import 'package:repo_viewer/github/detail/application/repo_detail_notifier.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class RepoDetailPage extends ConsumerStatefulWidget {
   final GithubRepo repo;
@@ -130,18 +131,28 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
             } else {
               return WebView(
                 javascriptMode: JavascriptMode.unrestricted,
+                navigationDelegate: (navReq) {
+                  if (navReq.url.startsWith('data:')) {
+                    return NavigationDecision.navigate;
+                  } else {
+                    url_launcher.launch(navReq.url);
+
+                    /// Open differen URL in mobile browser
+                    return NavigationDecision.prevent;
+                  }
+                },
                 initialUrl: Uri.dataFromString(
                   '''
-                  <!DOCTYPE html>
-                  <html lang="en">
-                  <head>
-                    <meta charset="UTF-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    $css
-                  </head>
-                  <body>${_.repoDetail.entity?.html}</body>
-                  </html>
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                      <meta charset="UTF-8">
+                      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      $css
+                    </head>
+                    <body>${_.repoDetail.entity?.html}</body>
+                    </html>
                   ''',
                   mimeType: 'text/html',
                   encoding: utf8,
