@@ -55,6 +55,10 @@ class AppWidget extends ConsumerWidget {
       routeInformationParser: _appRouter.defaultRouteParser(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.grey.shade50,
+          foregroundColor: Colors.black,
+        ),
       ),
     );
   }
