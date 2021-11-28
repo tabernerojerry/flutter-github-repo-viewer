@@ -13,7 +13,7 @@ final initializationProvider = FutureProvider<Unit>((ref) async {
   ref.read(dioProvider)
     ..options = BaseOptions(
       headers: {
-        'Accep': 'application/vnd.github.v3.html+json',
+        'Accept': 'application/vnd.github.v3.html+json',
       },
       validateStatus: (status) =>
           status != null && status >= 200 && status <= 400,
