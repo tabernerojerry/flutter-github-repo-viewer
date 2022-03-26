@@ -1,5 +1,5 @@
 name: repo_viewer
-description: A new Flutter project.
+description: A Github Repository Viewer.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
