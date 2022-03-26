@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'paginated_repos_notifier.dart';
@@ -214,11 +215,12 @@ class _$_Initial extends _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Initial &&
-            (identical(other.repos, repos) || other.repos == repos));
+            const DeepCollectionEquality().equals(other.repos, repos));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, repos);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(repos));
 
   @JsonKey(ignore: true)
   @override
@@ -385,13 +387,16 @@ class _$_LoadInProgress extends _LoadInProgress {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadInProgress &&
-            (identical(other.repos, repos) || other.repos == repos) &&
-            (identical(other.itemsPerPage, itemsPerPage) ||
-                other.itemsPerPage == itemsPerPage));
+            const DeepCollectionEquality().equals(other.repos, repos) &&
+            const DeepCollectionEquality()
+                .equals(other.itemsPerPage, itemsPerPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, repos, itemsPerPage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(repos),
+      const DeepCollectionEquality().hash(itemsPerPage));
 
   @JsonKey(ignore: true)
   @override
@@ -561,13 +566,16 @@ class _$_LoadSuccess extends _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadSuccess &&
-            (identical(other.repos, repos) || other.repos == repos) &&
-            (identical(other.isNextPageAvailable, isNextPageAvailable) ||
-                other.isNextPageAvailable == isNextPageAvailable));
+            const DeepCollectionEquality().equals(other.repos, repos) &&
+            const DeepCollectionEquality()
+                .equals(other.isNextPageAvailable, isNextPageAvailable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, repos, isNextPageAvailable);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(repos),
+      const DeepCollectionEquality().hash(isNextPageAvailable));
 
   @JsonKey(ignore: true)
   @override
@@ -744,12 +752,15 @@ class _$_LoadFailure extends _LoadFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadFailure &&
-            (identical(other.repos, repos) || other.repos == repos) &&
-            (identical(other.failure, failure) || other.failure == failure));
+            const DeepCollectionEquality().equals(other.repos, repos) &&
+            const DeepCollectionEquality().equals(other.failure, failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, repos, failure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(repos),
+      const DeepCollectionEquality().hash(failure));
 
   @JsonKey(ignore: true)
   @override

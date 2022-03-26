@@ -7,6 +7,8 @@
 // **************************************************************************
 // AutoRouteGenerator
 // **************************************************************************
+//
+// ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;
@@ -75,27 +77,30 @@ class AppRouter extends _i7.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.SplashPage]
+/// generated route for
+/// [_i1.SplashPage]
 class SplashRoute extends _i7.PageRouteInfo<void> {
-  const SplashRoute() : super(name, path: '/');
+  const SplashRoute() : super(SplashRoute.name, path: '/');
 
   static const String name = 'SplashRoute';
 }
 
-/// generated route for [_i2.SignInPage]
+/// generated route for
+/// [_i2.SignInPage]
 class SignInRoute extends _i7.PageRouteInfo<void> {
-  const SignInRoute() : super(name, path: '/sign-in');
+  const SignInRoute() : super(SignInRoute.name, path: '/sign-in');
 
   static const String name = 'SignInRoute';
 }
 
-/// generated route for [_i3.AuthorizationPage]
+/// generated route for
+/// [_i3.AuthorizationPage]
 class AuthorizationRoute extends _i7.PageRouteInfo<AuthorizationRouteArgs> {
   AuthorizationRoute(
       {_i8.Key? key,
       required Uri authorizationUrl,
       required void Function(Uri) onAuthorizationCodeRedirectAttempt})
-      : super(name,
+      : super(AuthorizationRoute.name,
             path: '/auth',
             args: AuthorizationRouteArgs(
                 key: key,
@@ -124,17 +129,19 @@ class AuthorizationRouteArgs {
   }
 }
 
-/// generated route for [_i4.StarredReposPage]
+/// generated route for
+/// [_i4.StarredReposPage]
 class StarredReposRoute extends _i7.PageRouteInfo<void> {
-  const StarredReposRoute() : super(name, path: '/starred');
+  const StarredReposRoute() : super(StarredReposRoute.name, path: '/starred');
 
   static const String name = 'StarredReposRoute';
 }
 
-/// generated route for [_i5.SearchedReposPage]
+/// generated route for
+/// [_i5.SearchedReposPage]
 class SearchedReposRoute extends _i7.PageRouteInfo<SearchedReposRouteArgs> {
   SearchedReposRoute({_i8.Key? key, required String searchTerm})
-      : super(name,
+      : super(SearchedReposRoute.name,
             path: '/search',
             args: SearchedReposRouteArgs(key: key, searchTerm: searchTerm));
 
@@ -154,10 +161,11 @@ class SearchedReposRouteArgs {
   }
 }
 
-/// generated route for [_i6.RepoDetailPage]
+/// generated route for
+/// [_i6.RepoDetailPage]
 class RepoDetailRoute extends _i7.PageRouteInfo<RepoDetailRouteArgs> {
   RepoDetailRoute({_i8.Key? key, required _i9.GithubRepo repo})
-      : super(name,
+      : super(RepoDetailRoute.name,
             path: '/detail', args: RepoDetailRouteArgs(key: key, repo: repo));
 
   static const String name = 'RepoDetailRoute';

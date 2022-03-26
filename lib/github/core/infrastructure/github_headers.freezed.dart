@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_headers.dart';
@@ -160,12 +161,15 @@ class _$_GithubHeaders extends _GithubHeaders {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _GithubHeaders &&
-            (identical(other.etag, etag) || other.etag == etag) &&
-            (identical(other.link, link) || other.link == link));
+            const DeepCollectionEquality().equals(other.etag, etag) &&
+            const DeepCollectionEquality().equals(other.link, link));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, etag, link);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(etag),
+      const DeepCollectionEquality().hash(link));
 
   @JsonKey(ignore: true)
   @override
@@ -313,11 +317,12 @@ class _$_PaginationLink extends _PaginationLink {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PaginationLink &&
-            (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
+            const DeepCollectionEquality().equals(other.maxPage, maxPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, maxPage);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(maxPage));
 
   @JsonKey(ignore: true)
   @override

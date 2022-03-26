@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_repo_detail.dart';
@@ -149,14 +150,17 @@ class _$_GithubRepoDetail extends _GithubRepoDetail {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _GithubRepoDetail &&
-            (identical(other.fullName, fullName) ||
-                other.fullName == fullName) &&
-            (identical(other.html, html) || other.html == html) &&
-            (identical(other.starred, starred) || other.starred == starred));
+            const DeepCollectionEquality().equals(other.fullName, fullName) &&
+            const DeepCollectionEquality().equals(other.html, html) &&
+            const DeepCollectionEquality().equals(other.starred, starred));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fullName, html, starred);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(fullName),
+      const DeepCollectionEquality().hash(html),
+      const DeepCollectionEquality().hash(starred));
 
   @JsonKey(ignore: true)
   @override

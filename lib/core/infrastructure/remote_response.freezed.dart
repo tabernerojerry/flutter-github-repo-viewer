@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'remote_response.dart';
@@ -265,11 +266,12 @@ class _$_NotModified<T> extends _NotModified<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NotModified<T> &&
-            (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
+            const DeepCollectionEquality().equals(other.maxPage, maxPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, maxPage);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(maxPage));
 
   @JsonKey(ignore: true)
   @override
@@ -413,12 +415,14 @@ class _$_WithNewData<T> extends _WithNewData<T> {
         (other.runtimeType == runtimeType &&
             other is _WithNewData<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
-            (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
+            const DeepCollectionEquality().equals(other.maxPage, maxPage));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(data), maxPage);
+      runtimeType,
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(maxPage));
 
   @JsonKey(ignore: true)
   @override

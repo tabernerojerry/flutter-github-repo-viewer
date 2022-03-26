@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'fresh.dart';
@@ -144,17 +145,17 @@ class _$_Fresh<T> extends _Fresh<T> {
         (other.runtimeType == runtimeType &&
             other is _Fresh<T> &&
             const DeepCollectionEquality().equals(other.entity, entity) &&
-            (identical(other.isFresh, isFresh) || other.isFresh == isFresh) &&
-            (identical(other.isNextPageAvailable, isNextPageAvailable) ||
-                other.isNextPageAvailable == isNextPageAvailable));
+            const DeepCollectionEquality().equals(other.isFresh, isFresh) &&
+            const DeepCollectionEquality()
+                .equals(other.isNextPageAvailable, isNextPageAvailable));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(entity),
-      isFresh,
-      isNextPageAvailable);
+      const DeepCollectionEquality().hash(isFresh),
+      const DeepCollectionEquality().hash(isNextPageAvailable));
 
   @JsonKey(ignore: true)
   @override

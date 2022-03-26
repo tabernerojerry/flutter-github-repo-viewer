@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'github_repo_dto.dart';
@@ -205,17 +206,21 @@ class _$_GithubRepoDto extends _GithubRepoDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _GithubRepoDto &&
-            (identical(other.owner, owner) || other.owner == owner) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.stargazersCount, stargazersCount) ||
-                other.stargazersCount == stargazersCount));
+            const DeepCollectionEquality().equals(other.owner, owner) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.stargazersCount, stargazersCount));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, owner, name, description, stargazersCount);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(owner),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(stargazersCount));
 
   @JsonKey(ignore: true)
   @override

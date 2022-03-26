@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'repo_detail_notifier.dart';
@@ -185,7 +186,7 @@ class __$InitialCopyWithImpl<$Res> extends _$RepoDetailStateCopyWithImpl<$Res>
 class _$_Initial extends _Initial {
   const _$_Initial({this.hasStarredStatusChanged = false}) : super._();
 
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool hasStarredStatusChanged;
 
@@ -199,13 +200,13 @@ class _$_Initial extends _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Initial &&
-            (identical(
-                    other.hasStarredStatusChanged, hasStarredStatusChanged) ||
-                other.hasStarredStatusChanged == hasStarredStatusChanged));
+            const DeepCollectionEquality().equals(
+                other.hasStarredStatusChanged, hasStarredStatusChanged));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hasStarredStatusChanged);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(hasStarredStatusChanged));
 
   @JsonKey(ignore: true)
   @override
@@ -348,7 +349,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
 class _$_LoadInProgress extends _LoadInProgress {
   const _$_LoadInProgress({this.hasStarredStatusChanged = false}) : super._();
 
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool hasStarredStatusChanged;
 
@@ -362,13 +363,13 @@ class _$_LoadInProgress extends _LoadInProgress {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadInProgress &&
-            (identical(
-                    other.hasStarredStatusChanged, hasStarredStatusChanged) ||
-                other.hasStarredStatusChanged == hasStarredStatusChanged));
+            const DeepCollectionEquality().equals(
+                other.hasStarredStatusChanged, hasStarredStatusChanged));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hasStarredStatusChanged);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(hasStarredStatusChanged));
 
   @JsonKey(ignore: true)
   @override
@@ -530,7 +531,7 @@ class _$_LoadSuccess extends _LoadSuccess {
 
   @override
   final Fresh<GithubRepoDetail?> repoDetail;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool hasStarredStatusChanged;
 
@@ -544,16 +545,17 @@ class _$_LoadSuccess extends _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadSuccess &&
-            (identical(other.repoDetail, repoDetail) ||
-                other.repoDetail == repoDetail) &&
-            (identical(
-                    other.hasStarredStatusChanged, hasStarredStatusChanged) ||
-                other.hasStarredStatusChanged == hasStarredStatusChanged));
+            const DeepCollectionEquality()
+                .equals(other.repoDetail, repoDetail) &&
+            const DeepCollectionEquality().equals(
+                other.hasStarredStatusChanged, hasStarredStatusChanged));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, repoDetail, hasStarredStatusChanged);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(repoDetail),
+      const DeepCollectionEquality().hash(hasStarredStatusChanged));
 
   @JsonKey(ignore: true)
   @override
@@ -715,7 +717,7 @@ class _$_LoadFailure extends _LoadFailure {
 
   @override
   final GithubFailure failure;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool hasStarredStatusChanged;
 
@@ -729,15 +731,16 @@ class _$_LoadFailure extends _LoadFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadFailure &&
-            (identical(other.failure, failure) || other.failure == failure) &&
-            (identical(
-                    other.hasStarredStatusChanged, hasStarredStatusChanged) ||
-                other.hasStarredStatusChanged == hasStarredStatusChanged));
+            const DeepCollectionEquality().equals(other.failure, failure) &&
+            const DeepCollectionEquality().equals(
+                other.hasStarredStatusChanged, hasStarredStatusChanged));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, failure, hasStarredStatusChanged);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(failure),
+      const DeepCollectionEquality().hash(hasStarredStatusChanged));
 
   @JsonKey(ignore: true)
   @override
