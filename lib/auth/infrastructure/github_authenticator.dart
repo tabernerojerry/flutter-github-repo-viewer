@@ -26,7 +26,7 @@ class GithubAuthenticator {
 
   static const clientId = 'ff26dc08f812b56d1d92';
 
-  static const clientSecret = 'cdc412f4911132f2747465b53298b85d72f5b0bf';
+  static const clientSecret = 'yourgithubclientsecrethere';
 
   static const scopes = ['read:user', 'repo'];
 
